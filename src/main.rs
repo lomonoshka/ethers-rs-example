@@ -14,11 +14,9 @@ use std::rc::Rc;
 use std::sync::Arc;
 use std::time::Instant;
 use dotenv::dotenv;
-use crate::erc20::ERC20;
-use crate::uniswap_v2_pool::UniswapV2Pool;
 
-mod erc20;
-mod uniswap_v2_pool;
+include!(concat!(env!("OUT_DIR"), "/UniswapV2Pool.rs"));
+include!(concat!(env!("OUT_DIR"), "/ERC20.rs"));
 
 #[derive(Debug)]
 struct PoolSingleTx {

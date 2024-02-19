@@ -16,3 +16,6 @@ eyre = "0.6.12"
 futures-core = "0.3.30"
 futures = "0.3.30"
 dotenv = "0.15.0"
+
+[build-dependencies]
+ethers = "2.0.13"
