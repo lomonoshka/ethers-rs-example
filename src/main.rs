@@ -137,9 +137,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .from_block(*from_block)
                 .to_block(*to_block);
             let logs = client.get_logs(&filter).await.unwrap();
+            let mut addresses = shared_addresses.borrow_mut();
+            let mut single_tx_logs = shared_single_tx_logs.borrow_mut();
             for log in logs {
-                let mut addresses = shared_addresses.borrow_mut();
-                let mut single_tx_logs = shared_single_tx_logs.borrow_mut();
                 if addresses.contains(&log.address) {
                     continue;
                 }
